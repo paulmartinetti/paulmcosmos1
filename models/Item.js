@@ -4,9 +4,9 @@ const mongoose = require('mongoose')
 // model or schema
 const Item = new mongoose.Schema({
     name: { type: String, default: '' },
-    description: { type: String, default: '' },
+    store: { type: String, default: '' },
     price: { type: Number, default: 0 },
-    interested: { type: Boolean, default: true },
+    gotit: { type: Boolean, default: true },
     timestamp: { type: Date, default: Date.now }
 })
 

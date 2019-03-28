@@ -4,19 +4,38 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <style>
+        .item {
+            padding: 12px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
         <h1>Add an item to Need-it-Got-it</h1>
         <h2>Testing env var: {{process.env.COSMODDB_USER}}</h2>
-        {{!-- sending to endpoint / route register --}}
-        <form action="/additem" method="POST">
-            <input type="text" name="name" placeholder="Item name" /><br />
-            <input type="text" name="store" placeholder="Grocery store" /><br />
-            <input type="submit" class="btn btn-success" value="Add item" />
-        </form>
+        <div class="row">
+            <div class="col-6">
+                <form action="additem" method="POST">
+                    <input type="text" name="name" placeholder="Item name" /><br />
+                    <input type="text" name="store" placeholder="Grocery store" /><br />
+                    <input type="submit" class="btn btn-success" value="Add item" />
+                </form>
+            </div>
+            <div class="col-6">
+                <h3>Current items</h3>
+                <ol>
+                    {{#itemsA}}
+                    <li>
+                        <div class="item">{{name}}<br />{{store}}</div>
+                    </li>
+                    {{/itemsA}}
+                </ol>
+            </div>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
