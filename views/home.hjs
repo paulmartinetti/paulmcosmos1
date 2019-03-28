@@ -9,23 +9,43 @@
             padding: 12px;
             background: #f9f9f9;
             border: 1px solid #ddd;
+            margin: 12px
+        }
+        form {
+            padding: 5px;
+            margin: 5px
+        }
+        h2 {
+            margin-bottom: 30px;
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h1>Add an item to Need-it-Got-it</h1>
-        <h2>Testing env var: {{process.env.COSMODDB_USER}}</h2>
+        <h2>Add an item to Need-it-Got-it</h2>
         <div class="row">
-            <div class="col-6">
+            <div class="col-sm">
+                <h3>My port is: {{port}}</h3>
                 <form action="additem" method="POST">
-                    <input type="text" name="name" placeholder="Item name" /><br />
-                    <input type="text" name="store" placeholder="Grocery store" /><br />
-                    <input type="submit" class="btn btn-success" value="Add item" />
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail2">Enter item</label>
+                        <input type="text" name="name" class="form-control" id="exampleDropdownFormEmail2" placeholder="pumpkin seeds">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormPassword2">Grocery store</label>
+                        <input type="text" name="store" class="form-control" id="exampleDropdownFormPassword2" placeholder="supermarket">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="dropdownCheck2" disabled>
+                        <label class="form-check-label" for="dropdownCheck2">
+                            Need it (inactive for now)
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-success">Add item</button>
                 </form>
             </div>
-            <div class="col-6">
+            <div class="col-sm">
                 <h3>Current items</h3>
                 <ol>
                     {{#itemsA}}

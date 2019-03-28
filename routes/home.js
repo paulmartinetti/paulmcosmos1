@@ -6,7 +6,10 @@ router.get('/', (req, res, next)=>{
 
     Item.find({}, (err, itemsA) => {
         // prep data for hjs
-        const data = { itemsA: itemsA}
+        const data = { 
+            itemsA: itemsA,
+            port: process.env.COSMODDB_USER
+        }
         res.render('home', data)
     })
 })
@@ -19,7 +22,8 @@ router.post('/additem', (req, res, next)=>{
         Item.find({}, (err, itemsA)=>{
             if (err) return next(err)
             const data = {
-                itemsA: itemsA
+                itemsA: itemsA,
+                port: process.env.PORT
             }
 
             res.render('home', data)
