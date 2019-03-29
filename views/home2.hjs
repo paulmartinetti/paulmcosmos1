@@ -1,0 +1,94 @@
+{{!-- using the hogan templating engine --}}
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        li {
+            padding: 12px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            margin: 12px
+        }
+
+        form {
+            padding: 5px;
+            margin: 5px
+        }
+
+        h2 {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Add an item to Need-it-Got-it</h2>
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active"><a href="#needit" data-toggle="tab">Needit</a></li>
+            <li><a href="#gotit" data-toggle="tab">Gotit</a></li>
+            <li><a href="#addit" data-toggle="tab">Addit</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+
+            <div class="tab-pane fade in active" id="needit">
+                <h3>My port is: {{port}}</h3>
+                <h3>Needit</h3>
+                <ol>
+                    {{#itemsA}}
+                    <li>
+                        <div class="item">{{name}}<br />{{store}}</div>
+                    </li>
+                    {{/itemsA}}
+                </ol>
+            </div>
+
+            <div class="tab-pane fade" id="gotit">
+                <h3>Gotit</h3>
+                <ol>
+                    {{#itemsA}}
+                    <li>
+                        <div class="item">{{name}}<br />{{store}}</div>
+                    </li>
+                    {{/itemsA}}
+                </ol>
+            </div>
+
+            <div class="tab-pane fade" id="addit">
+                <h3>Addit</h3>
+                <form action="additem" method="POST">
+                    <div class="form-group">
+                        <label for="exampleDropdownFormEmail2">Enter item</label>
+                        <input type="text" name="name" class="form-control" id="exampleDropdownFormEmail2" placeholder="pumpkin seeds">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleDropdownFormPassword2">Grocery store</label>
+                        <input type="text" name="store" class="form-control" id="exampleDropdownFormPassword2"
+                            placeholder="supermarket">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="dropdownCheck2" disabled>
+                        <label class="form-check-label" for="dropdownCheck2">
+                            Need it (inactive for now)
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-success">Add item</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

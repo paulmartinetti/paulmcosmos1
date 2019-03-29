@@ -10,7 +10,7 @@ router.get('/', (req, res, next)=>{
             itemsA: itemsA,
             port: process.env.COSMODDB_USER
         }
-        res.render('home', data)
+        res.render('home2', data)
     })
 })
 
@@ -26,7 +26,7 @@ router.post('/additem', (req, res, next)=>{
                 port: process.env.PORT
             }
 
-            res.render('home', data)
+            res.render('home2', data)
         })
 
     })

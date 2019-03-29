@@ -7,7 +7,8 @@ mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",
     auth: {
         user: process.env.COSMODDB_USER,
         password: process.env.COSMOSDB_PASSWORD
-    }
+    },
+    useNewUrlParser: true
 })
     .then(() => console.log('Connection to CosmosDB successful'))
     .catch((err) => console.error(err))
