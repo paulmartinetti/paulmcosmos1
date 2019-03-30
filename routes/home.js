@@ -17,6 +17,7 @@ router.get('/', (req, res, next)=>{
 router.post('/additem', (req, res, next)=>{
 
     console.log(req.body)
+    res.send()
     //
     /* Item.create(req.body, (err, item) =>{
         if (err) return next(err)

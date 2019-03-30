@@ -3,34 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Groceries</title>
 </head>
-<style>
-    body {
-        font-family: 'Courier New', Courier, monospace;
-        background-color: darkcyan;
-        margin: 20px;
-    }
-
-    #divwrapper,
-    fieldset {
-        background-color: aliceblue;
-        max-width: 900px;
-        min-height: 100px;
-        border-radius: 10px;
-        padding: 2%;
-        margin: 0 auto 10px;
-    }
-
-    #formwrapper {
-        display: flex;
-        flex-direction: column;
-    }
-
-    li {
-        border: 1px solid black;
-    }
-</style>
 <script>
     // background: linear-gradient(90deg, darkgreen, azure);
 </script>
@@ -46,12 +21,12 @@
                         <input id="itemname" type="text" name="name" placeholder="nuts" autofocus required>
                     </p>
                     <p>
-                        <select>
-                            <optgroup id="store">
+                        <select name="store">
+                            <optgroup>
                                 <option value="" selected="selected">Pick a store</option>
                                 <option value="Organnons">Organnons</option>
                                 <option value="PQM">PQM</option>
-                                <option value="Stop'n'shop">Stop'n'shop</option>
+                                <option value="Stopnshop">Stop'n'shop</option>
                             </optgroup>
                         </select>
                     </p>
@@ -59,13 +34,13 @@
                 </fieldset>
                 <fieldset>
                     <legend>All</legend>
-                    <ol>
+                    <ul>
                         {{#itemsA}}
-                        <li>
-                            <span><input type="checkbox">{{name}}<br />{{store}}</span>
-                        </li>
+                            <li><label class="container">{{name}}<input type="checkbox" checked="checked">
+                            <span class="checkmark"></span></label>
+                            </li>
                         {{/itemsA}}
-                    </ol>
+                    </ul>
                 </fieldset>
             </section>
         </form>
