@@ -11,7 +11,7 @@ mongoose.connect(process.env.COSMOSDB_CONNSTR + "?ssl=true&replicaSet=globaldb",
     useNewUrlParser: true
 })
     .then(() => console.log('Connection to CosmosDB successful'))
-    .catch((err) => console.error(err))
+    .catch((err) => console.error(log(err)))
 
 // main
 const app = express()
@@ -23,6 +23,9 @@ app.set('view engine', 'hjs')
 // parse form data
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
+
+// project will automatically look here for public assets
+app.use(express.static(path.join(__dirname, 'public')))
 
 // route
 const home = require('./routes/home')
@@ -36,12 +39,15 @@ app.use((err, req, res, next)=>{
 let port = process.env.PORT || 5000
 app.listen(port)
 
-// to see port in verbose azure logs
+// to find messages in verbose azure logs
 const logPartion = 'oooooooooooooooooooooooooooooooooooooooooooooooooooooo'
-console.log(`${logPartion}
+let log = (obj ) =>{
+    return `${logPartion}
 
 
-app running on port ${port}
+${obj}
 
 
-${logPartion}`)
+${logPartion}`
+}
+console.log(log('port running on ' + port))

@@ -15,8 +15,10 @@ router.get('/', (req, res, next)=>{
 })
 
 router.post('/additem', (req, res, next)=>{
+
+    console.log(req.body)
     //
-    Item.create(req.body, (err, item) =>{
+    /* Item.create(req.body, (err, item) =>{
         if (err) return next(err)
 
         Item.find({}, (err, itemsA)=>{
@@ -29,7 +31,7 @@ router.post('/additem', (req, res, next)=>{
             res.render('home2', data)
         })
 
-    })
+    }) */
 })
 
 // from nav champ -- debugging only
