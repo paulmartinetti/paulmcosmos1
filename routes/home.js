@@ -3,15 +3,16 @@ const router = express.Router()
 const Item = require('../models/Item')
 
 router.get('/', (req, res, next)=>{
-
     Item.find({}, (err, itemsA) => {
-        // prep data for hjs
-        const data = { 
-            itemsA: itemsA,
-            port: process.env.COSMODDB_USER
-        }
-        res.render('home2', data)
+        res.render('home2', {itemsA})
     })
+})
+
+// 
+router.get('/gotit/:itemid', (req, res, next)=>{
+    // returns { itemid: '5c9d430c140df02c7caa2960' }
+    console.log(req.params)
+    res.send()
 })
 
 router.post('/additem', (req, res, next)=>{

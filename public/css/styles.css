@@ -12,6 +12,10 @@ fieldset {
     border-radius: 10px;
     padding: 2%;
     margin: 0 auto 10px;
+    border: 2px solid #0e5c9c;
+    color: #0e5c9c;
+    font-weight: bold;
+
 }
 
 #formwrapper {
@@ -100,7 +104,8 @@ li {
 }
 
 li label {
-    border: 2px solid black;
+    border: 2px solid #0e5c9c;
     padding: 5px;
+    border-radius: 10px;
     
 }

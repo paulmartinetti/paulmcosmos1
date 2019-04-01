@@ -36,7 +36,8 @@
                     <legend>All</legend>
                     <ul>
                         {{#itemsA}}
-                            <li><label class="container">{{name}}<input type="checkbox" checked="checked">
+                            <li><label class="container">{{name}}
+                                <input onclick="window.location.href='/gotit/{{id}}'" type="checkbox" checked>
                             <span class="checkmark"></span></label>
                             </li>
                         {{/itemsA}}
@@ -46,7 +47,10 @@
         </form>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+    <script>
+        //<a href="/routes/home/gotit/{{id}}">
+        // onClick="this.form.submit()"
+    </script>
 </body>
 
 </html>
