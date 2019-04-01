@@ -9,9 +9,14 @@
 
 <body>
     <div id="divwrapper">
-        <h2>Add</h2>
-        <form id="formwrapper" action="additem" method="POST">
-            <section id="left-column">
+        <div id=nav>
+            <button class="flat-btn" id="all">All</button>
+            <button class="flat-btn" id="shop">Shop</button>
+            <button class="flat-btn" id="save" disabled>Save</button>
+            <button class="flat-btn" id="add">Add</button>
+        </div>
+        <div id="additem">
+            <form id="formwrapper" action="additem" method="POST">
                 <fieldset>
                     <legend>Add an item</legend>
                     <p>
@@ -28,18 +33,25 @@
                     </p>
                     <p><input class="flat-btn" type="submit" value="Add item"></p>
                 </fieldset>
-                <fieldset>
-                    <legend>All</legend>
-                        <ul>
-                        <li><label class="container">Nuts<input type="checkbox" checked="checked"><span class="checkmark"></span></label></li>
-                            <li><label class="container">Broccoli<input type="checkbox" checked="checked"><span class="checkmark"></span></label></li>
-                            <li><label class="container">Chocolate<input type="checkbox" checked="checked"><span class="checkmark"></span></label></li>
-                            <li><label class="container">Nuts<input type="checkbox" checked="checked"><span class="checkmark"></span></label></li>
-                    </ul>
-                </fieldset>
-            </section>
-        </form>
+            </form>
+        </div>
+        <div id="list">
+            <fieldset>
+                <legend>All</legend>
+                <ul>
+                    <li><label class="container">Nuts<input type="checkbox" checked="checked"><span
+                                class="checkmark"></span></label></li>
+                    <li><label class="container">Broccoli<input type="checkbox" checked="checked"><span
+                                class="checkmark"></span></label></li>
+                    <li><label class="container">Chocolate<input type="checkbox" checked="checked"><span
+                                class="checkmark"></span></label></li>
+                    <li><label class="container">Nuts<input type="checkbox" checked="checked"><span
+                                class="checkmark"></span></label></li>
+                </ul>
+            </fieldset>
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
+
 </html>

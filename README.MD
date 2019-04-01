@@ -16,4 +16,5 @@ form.addEventListener('submit', function (event) {
     event.preventDefault()
     methods..
 })
-//  
+//  tabs
+https://www.w3schools.com/w3css/w3css_tabulators.asp

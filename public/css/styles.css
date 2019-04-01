@@ -1,6 +1,12 @@
 body {
     background-color: #0e5c9c;
-    margin: 20px;
+    margin: 15px;
+}
+
+/* nav - tabs */
+#nav {
+    margin: 10px;
+    padding: 5px;
 }
 
 /* fieldsets */
@@ -23,6 +29,10 @@ fieldset {
     flex-direction: column;
 }
 
+#additem{
+    display: block;
+}
+
 /* item entry text */
 body, p input, select, option {
     color: #0e5c9c;
@@ -33,7 +43,7 @@ body, p input, select, option {
 
 
 /* Add item button */
-input[type="submit"] {
+button, input[type="submit"] {
     color: #0e5c9c;
     font-size: 22px;
     font-family: 'Courier New', Courier, monospace;
@@ -52,6 +62,11 @@ input[type="submit"] {
 .flat-btn:active {
     color: aliceblue;
     background: #0e5c9c;
+}
+.flat-btn:disabled {
+    color:gray;
+    background:aliceblue;
+    border-color: gray
 }
 
 
