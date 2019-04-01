@@ -1,9 +1,9 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
     background-color: #0e5c9c;
     margin: 20px;
 }
 
+/* fieldsets */
 #divwrapper,
 fieldset {
     background-color: aliceblue;
@@ -22,6 +22,38 @@ fieldset {
     display: flex;
     flex-direction: column;
 }
+
+/* item entry text */
+body, p input, select, option {
+    color: #0e5c9c;
+    font-size: 22px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+
+/* Add item button */
+input[type="submit"] {
+    color: #0e5c9c;
+    font-size: 22px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    background: aliceblue;
+    border: 2px solid #0e5c9c;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+.flat-btn {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+   appearance: none;
+   border-radius: 0;
+}
+.flat-btn:active {
+    color: aliceblue;
+    background: #0e5c9c;
+}
+
 
 /* --------------
 ALL list items
@@ -43,6 +75,14 @@ li {
     transition: background-color 0.5s;
 }
 
+li label {
+    border: 2px solid #0e5c9c;
+    padding: 5px;
+    border-radius: 10px;
+}
+/* --------------
+custom checkbox (art = container)
+----------------- */
 .container {
     display: block;
     position: relative;
@@ -101,11 +141,4 @@ li {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
-}
-
-li label {
-    border: 2px solid #0e5c9c;
-    padding: 5px;
-    border-radius: 10px;
-    
 }

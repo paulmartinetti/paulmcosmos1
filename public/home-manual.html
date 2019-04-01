@@ -1,4 +1,4 @@
-{{!-- using the hogan templating engine --}}
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -6,9 +6,6 @@
     <link rel="stylesheet" href="css/styles.css">
     <title>Groceries</title>
 </head>
-<script>
-    // background: linear-gradient(90deg, darkgreen, azure);
-</script>
 
 <body>
     <div id="divwrapper">
@@ -20,12 +17,12 @@
                     <p>
                         <input id="itemname" type="text" name="name" placeholder="nuts" autofocus required>
                     </p>
-                    <p>
-                        <select name="store">
+                    <p><label for="store">Pick a store</label>
+                        <select>
                             <optgroup label="stores">
-                                <option value="Organnons" selected>Organnons</option>
+                                <option value="Organnons">Organnons</option>
                                 <option value="PQM">PQM</option>
-                                <option value="Stopnshop">Stop'n'shop</option>
+                                <option value="Stop'n'shop">Stop'n'shop</option>
                             </optgroup>
                         </select>
                     </p>
@@ -33,13 +30,11 @@
                 </fieldset>
                 <fieldset>
                     <legend>All</legend>
-                    <ul>
-                        {{#itemsA}}
-                            <li><label class="container">{{name}}
-                                <input onclick="window.location.href='/gotit/{{id}}'" type="checkbox" checked>
-                            <span class="checkmark"></span></label>
-                            </li>
-                        {{/itemsA}}
+                        <ul>
+                        <li><label class="container">Nuts<input type="checkbox" checked="checked"><span class="checkmark"></span></label></li>
+                            <li><label class="container">Broccoli<input type="checkbox" checked="checked"><span class="checkmark"></span></label></li>
+                            <li><label class="container">Chocolate<input type="checkbox" checked="checked"><span class="checkmark"></span></label></li>
+                            <li><label class="container">Nuts<input type="checkbox" checked="checked"><span class="checkmark"></span></label></li>
                     </ul>
                 </fieldset>
             </section>
@@ -47,5 +42,4 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </body>
-
 </html>
