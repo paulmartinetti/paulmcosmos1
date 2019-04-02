@@ -2,29 +2,17 @@ const express = require('express')
 const router = express.Router()
 const Item = require('../models/Item')
 
-// items are managed locally, then saved
-let itemsA = []
-// save btn is activated by changes in list
-let saveState = 'disabled';
-
 // all
 router.get('/', (req, res, next)=>{
-    Item.find({}, (err, items) => {
-        itemsA = items;
-        data = {
-            itemsA: itemsA,
-            savestate: saveState
-        }
-        res.render('home', data)
+    Item.find({}, (err, itemsA) => {
+        res.render('home', {itemsA})
     })
 })
 
 // 
-router.get('/:itemid', (req, res, next)=>{
+router.get('/gotit/:itemid', (req, res, next)=>{
     // returns { itemid: '5c9d430c140df02c7caa2960' }
-    console.log(req.params)
-    // someone clicked 
-    saveState = '';
+    //console.log(req.params)
     // 
     res.redirect('/')
 })

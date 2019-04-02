@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.css">
-    <script type="text/javascript" src="js/nav.js"></script>
     <title>Groceries</title>
 </head>
 
@@ -12,7 +11,7 @@
         <div id=nav>
             <button class="flat-btn" id="allbtn" onclick="openTab('allitems')">All</button>
             <button class="flat-btn" id="shopbtn">Shop</button>
-            <button class="flat-btn" id="savebtn" {{savestate}}>Save</button>
+            <button class="flat-btn" id="savebtn" disabled="true">Save</button>
             <button class="flat-btn" id="addbtn" onclick="openTab('additem')">Add</button>
         </div>
 
@@ -43,7 +42,7 @@
                 <ul>
                     {{#itemsA}}
                     <li><label class="container">{{name}}
-                            <input onclick="window.location.href='/{{id}}'" type="checkbox" checked>
+                            <input id="{{id}}" type="checkbox" checked="{{gotit}}" class="items">
                             <span class="checkmark"></span></label>
                     </li>
                     {{/itemsA}}
@@ -51,6 +50,7 @@
             </fieldset>
         </div>
     </div>
+        <script type="text/javascript" src="js/nav.js"></script>
 </body>
 
 </html>
