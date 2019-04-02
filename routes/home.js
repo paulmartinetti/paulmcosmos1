@@ -2,9 +2,10 @@ const express = require('express')
 const router = express.Router()
 const Item = require('../models/Item')
 
+// all
 router.get('/', (req, res, next)=>{
     Item.find({}, (err, itemsA) => {
-        res.render('home2', {itemsA})
+        res.render('home', {itemsA})
     })
 })
 
@@ -17,23 +18,18 @@ router.get('/gotit/:itemid', (req, res, next)=>{
 
 router.post('/additem', (req, res, next)=>{
 
-    console.log(req.body)
-    res.send()
+    //console.log(req.body)
+    //res.send()
     //
-    /* Item.create(req.body, (err, item) =>{
+    Item.create(req.body, (err, item) =>{
         if (err) return next(err)
 
         Item.find({}, (err, itemsA)=>{
             if (err) return next(err)
-            const data = {
-                itemsA: itemsA,
-                port: process.env.PORT
-            }
-
-            res.render('home2', data)
+            res.render('home', {itemsA})
         })
 
-    }) */
+    })
 })
 
 // from nav champ -- debugging only

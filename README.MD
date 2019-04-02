@@ -1,3 +1,6 @@
+// getting close to the first functioning app.
+// will comment fully when it's ready
+
 npm init
 npm i mongoose@5 --save
 npm i donenv --save

@@ -1,72 +1,56 @@
-{{!-- using the hogan templating engine --}}
 <html>
 
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <style>
-        .item {
-            padding: 12px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            margin: 12px
-        }
-        form {
-            padding: 5px;
-            margin: 5px
-        }
-        h2 {
-            margin-bottom: 30px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="js/nav.js"></script>
+    <title>Groceries</title>
 </head>
 
 <body>
-    <div class="container">
-        <h2>Add an item to Need-it-Got-it</h2>
-        <div class="row">
-            <div class="col-sm">
-                <h3>My port is: {{port}}</h3>
-                <form action="additem" method="POST">
-                    <div class="form-group">
-                        <label for="exampleDropdownFormEmail2">Enter item</label>
-                        <input type="text" name="name" class="form-control" id="exampleDropdownFormEmail2" placeholder="pumpkin seeds">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleDropdownFormPassword2">Grocery store</label>
-                        <input type="text" name="store" class="form-control" id="exampleDropdownFormPassword2" placeholder="supermarket">
-                    </div>
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="dropdownCheck2" disabled>
-                        <label class="form-check-label" for="dropdownCheck2">
-                            Need it (inactive for now)
-                        </label>
-                    </div>
-                    <button type="submit" class="btn btn-success">Add item</button>
-                </form>
-            </div>
-            <div class="col-sm">
-                <h3>Current items</h3>
-                <ol>
+    <div id="divwrapper">
+        <div id=nav>
+            <button class="flat-btn" id="all" onclick="openTab('allitems')">All</button>
+            <button class="flat-btn" id="shop">Shop</button>
+            <button class="flat-btn" id="save" disabled>Save</button>
+            <button class="flat-btn" id="add" onclick="openTab('additem')">Add</button>
+        </div>
+
+        <div id="additem" class="itemnav">
+            <form id="formwrapper" action="additem" method="POST">
+                <fieldset>
+                    <legend>Add an item</legend>
+                    <p>
+                        <input id="itemname" type="text" name="name" placeholder="nuts" autofocus required>
+                    </p>
+                    <p><label for="store">Pick a store</label>
+                        <select>
+                            <optgroup label="stores">
+                                <option value="Organnons">Organnons</option>
+                                <option value="PQM">PQM</option>
+                                <option value="Stop'n'shop">Stop'n'shop</option>
+                            </optgroup>
+                        </select>
+                    </p>
+                    <p><input class="flat-btn" type="submit" value="Add item"></p>
+                </fieldset>
+            </form>
+        </div>
+
+        <div id="allitems" class="itemnav">
+            <fieldset>
+                <legend>All</legend>
+                <ul>
                     {{#itemsA}}
-                    <li>
-                        <div class="item">{{name}}<br />{{store}}</div>
+                    <li><label class="container">{{name}}
+                            <input onclick="window.location.href='/gotit/{{id}}'" type="checkbox" checked>
+                            <span class="checkmark"></span></label>
                     </li>
                     {{/itemsA}}
-                </ol>
-            </div>
+                </ul>
+            </fieldset>
         </div>
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 </body>
 
 </html>
