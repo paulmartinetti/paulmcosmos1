@@ -4,18 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.css">
+    <script type="text/javascript" src="js/nav.js"></script>
     <title>Groceries</title>
 </head>
 
 <body>
     <div id="divwrapper">
         <div id=nav>
-            <button class="flat-btn" id="all">All</button>
+            <button class="flat-btn" id="all" onclick="openTab('allitems')">All</button>
             <button class="flat-btn" id="shop">Shop</button>
             <button class="flat-btn" id="save" disabled>Save</button>
-            <button class="flat-btn" id="add">Add</button>
+            <button class="flat-btn" id="add" onclick="openTab('additem')">Add</button>
         </div>
-        <div id="additem">
+
+        <div id="additem" class="itemnav">
             <form id="formwrapper" action="additem" method="POST">
                 <fieldset>
                     <legend>Add an item</legend>
@@ -35,7 +37,8 @@
                 </fieldset>
             </form>
         </div>
-        <div id="list">
+        
+        <div id="allitems" class="itemnav">
             <fieldset>
                 <legend>All</legend>
                 <ul>

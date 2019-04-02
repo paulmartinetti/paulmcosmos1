@@ -9,6 +9,9 @@ body {
     padding: 5px;
 }
 
+#additem {
+    display: none;
+}
 /* fieldsets */
 #divwrapper,
 fieldset {
@@ -25,12 +28,7 @@ fieldset {
 }
 
 #formwrapper {
-    display: flex;
     flex-direction: column;
-}
-
-#additem{
-    display: block;
 }
 
 /* item entry text */
@@ -57,7 +55,6 @@ button, input[type="submit"] {
   -webkit-appearance: none;
   -moz-appearance: none;
    appearance: none;
-   border-radius: 0;
 }
 .flat-btn:active {
     color: aliceblue;
