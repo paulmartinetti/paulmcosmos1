@@ -7,26 +7,17 @@ function openTab(navName) {
     }
     document.getElementById(navName).style.display = "block";
 }
-// define local array to track user activity
-const saveBtn = document.getElementById('savebtn');
-//saveBtn.addEventListener('click', saveUpdates)
 
-// listeners on checkboxes activate Save btn
-/* function listenItems() {
-    let itemsA = document.getElementsByClassName('items');
-    for (let i = 0; i < itemsA.length; i++) {
-        itemsA[i].addEventListener('click', itemClicked)
-    }
-}
-listenItems() */
+// save btn state
+const saveBtn = document.getElementById('savebtn');
 document.getElementById('allitems').addEventListener('click', itemClicked);
 // item clicked
 function itemClicked(event) {
     // change
     saveBtn.disabled = false;
-//
 }
-// get checkbox updates and submit
+
+// get checkbox updates and POST form name-value pairs
 function checkBoxUpdateAndSubmit() {
     let g = document.getElementsByName('gotit');
     let c = document.getElementsByClassName('items');
