@@ -11,47 +11,27 @@ function openTab(navName) {
 const saveBtn = document.getElementById('savebtn');
 //saveBtn.addEventListener('click', saveUpdates)
 
-// updated items
-let updatedItemsA = []
-
 // listeners on checkboxes activate Save btn
-function listenItems() {
+/* function listenItems() {
     let itemsA = document.getElementsByClassName('items');
     for (let i = 0; i < itemsA.length; i++) {
         itemsA[i].addEventListener('click', itemClicked)
     }
 }
-listenItems()
-
+listenItems() */
+document.getElementById('allitems').addEventListener('click', itemClicked);
 // item clicked
 function itemClicked(event) {
     // change
     saveBtn.disabled = false;
-    // save change
-    let obj = {}
-    obj.gotit = event.target.checked;
-    obj.id = event.target.id;
-    updatedItemsA.push(obj)
-}
 //
-
-function saveUpdates(event) {
-    console.log(updatedItemsA)
-    // call get function
-    //window.location.href = '/gotit/'+JSON.stringify(updatedItemsA)
-    // post
-    // Sending and receiving data in JSON format using POST method
-    //
-    /* var xhr = new XMLHttpRequest();
-    var url = "url";
-    xhr.open("POST", url, true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4 && xhr.status === 200) {
-            var json = JSON.parse(xhr.responseText);
-            console.log(json.email + ", " + json.password);
-        }
-    };
-    var data = JSON.stringify({ "email": "hey@mail.com", "password": "101010" });
-    xhr.send(data); */
+}
+// get checkbox updates and submit
+function checkBoxUpdateAndSubmit() {
+    let g = document.getElementsByName('gotit');
+    let c = document.getElementsByClassName('items');
+    for (let i = 0; i < c.length; i++) {
+        g.item(i).value = c.item(i).checked;
+    }
+    document.getElementById('itemForm').submit()
 }

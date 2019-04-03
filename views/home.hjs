@@ -11,7 +11,7 @@
         <div id=nav>
             <button class="flat-btn" id="allbtn" onclick="openTab('allitems')">All</button>
             <button class="flat-btn" id="shopbtn">Shop</button>
-            <button class="flat-btn" id="savebtn" {{saveBtnState}} onclick="collect()">Save</button>
+            <button class="flat-btn" id="savebtn" {{saveBtnState}} onclick="checkBoxUpdateAndSubmit()">Save</button>
             <button class="flat-btn" id="addbtn" onclick="openTab('additem')">Add</button>
         </div>
 
@@ -44,29 +44,15 @@
                         {{#itemsA}}
                         <li><label class="container">{{name}}
                                 <input type="hidden" name="id" value="{{id}}" />
-                                {{!-- <input type="checkbox" onChange="$(this).val(this.checked? '1': '0');" /> --}}
-                                <input id="oneitem" type="checkbox" checked class="items" value="">
+                                <input type="hidden" name="gotit"/>
+                                <input class="items" type="checkbox" checked="{{gotit}}">
                                 <span class="checkmark"></span></label>
                         </li>
                         {{/itemsA}}
                     </ul>
-                    <input type="hidden" id="gotit" name="gotit" value="" />
                 </fieldset>
             </form>
         </div>
-        <script type="text/javascript">
-            function collect() {
-                var a = document.getElementsByClassName('items');
-                var aA = []
-                for (let i = 0; i < a.length; i++) {
-                    aA.push(a.item(i).checked);
-                }
-                document.getElementById('gotit').value = JSON.stringify(aA);
-                document.getElementById('itemForm').submit();
-
-                // try assigning each value in corresponding items[i]
-            }
-        </script>
     </div>
     <script type="text/javascript" src="js/nav.js"></script>
 </body>
