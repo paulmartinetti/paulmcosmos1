@@ -9,7 +9,7 @@ function openTab(navName) {
 }
 // define local array to track user activity
 const saveBtn = document.getElementById('savebtn');
-saveBtn.addEventListener('click', saveUpdates)
+//saveBtn.addEventListener('click', saveUpdates)
 
 // updated items
 let updatedItemsA = []
@@ -22,6 +22,7 @@ function listenItems() {
     }
 }
 listenItems()
+
 // item clicked
 function itemClicked(event) {
     // change
@@ -37,5 +38,20 @@ function itemClicked(event) {
 function saveUpdates(event) {
     console.log(updatedItemsA)
     // call get function
-    window.location.href = '/gotit/'+updatedItemsA
+    //window.location.href = '/gotit/'+JSON.stringify(updatedItemsA)
+    // post
+    // Sending and receiving data in JSON format using POST method
+    //
+    /* var xhr = new XMLHttpRequest();
+    var url = "url";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText);
+            console.log(json.email + ", " + json.password);
+        }
+    };
+    var data = JSON.stringify({ "email": "hey@mail.com", "password": "101010" });
+    xhr.send(data); */
 }

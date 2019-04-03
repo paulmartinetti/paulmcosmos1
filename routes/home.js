@@ -20,9 +20,20 @@ router.get('/', (req, res, next)=>{
 // 
 router.get('/gotit/:items', (req, res, next)=>{
     // returns { itemid: '5c9d430c140df02c7caa2960' }
-    console.log(req.params)
+    //console.log(req.params)
     // 
-    res.redirect('/')
+    res.json(req.params)
+})
+
+// testing item list in a form to post updates
+router.post('/updateitems',(req, res, next)=>{
+    data = {
+
+        id: req.body.id,
+        gotit: [req.body.gotit]
+    }
+    console.log(data.gotit.length)
+    res.json(req.body)
 })
 
 router.post('/additem', (req, res, next)=>{
