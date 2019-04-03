@@ -7,30 +7,35 @@ function openTab(navName) {
     }
     document.getElementById(navName).style.display = "block";
 }
+// define local array to track user activity
+const saveBtn = document.getElementById('savebtn');
+saveBtn.addEventListener('click', saveUpdates)
 
-// listen to item clicks
+// updated items
+let updatedItemsA = []
+
+// listeners on checkboxes activate Save btn
 function listenItems() {
     let itemsA = document.getElementsByClassName('items');
-    for (let i=0;i<itemsA.length;i++) {
+    for (let i = 0; i < itemsA.length; i++) {
         itemsA[i].addEventListener('click', itemClicked)
     }
 }
 listenItems()
-
 // item clicked
 function itemClicked(event) {
-
-    let currentItem = event.target
-    console.log(currentItem.checked)
+    // change
+    saveBtn.disabled = false;
+    // save change
+    let obj = {}
+    obj.gotit = event.target.checked;
+    obj.id = event.target.id;
+    updatedItemsA.push(obj)
 }
+//
 
-let saveBtn = document.getElementById('savebtn')
-saveBtn.addEventListener('click', saveUpdates)
 function saveUpdates(event) {
-
-    let itemsA = document.getElementsByClassName('items')
-    console.log(itemsA[0])
-   /* for (var cardIndex in cards) {
-       
-   } */
+    console.log(updatedItemsA)
+    // call get function
+    window.location.href = '/gotit/'+updatedItemsA
 }

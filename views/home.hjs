@@ -11,7 +11,7 @@
         <div id=nav>
             <button class="flat-btn" id="allbtn" onclick="openTab('allitems')">All</button>
             <button class="flat-btn" id="shopbtn">Shop</button>
-            <button class="flat-btn" id="savebtn" disabled="true">Save</button>
+            <button class="flat-btn" id="savebtn" {{saveBtnState}}>Save</button>
             <button class="flat-btn" id="addbtn" onclick="openTab('additem')">Add</button>
         </div>
 

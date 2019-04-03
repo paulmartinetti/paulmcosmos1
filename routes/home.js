@@ -2,17 +2,25 @@ const express = require('express')
 const router = express.Router()
 const Item = require('../models/Item')
 
+let saveBtnState = 'disabled';
+
 // all
 router.get('/', (req, res, next)=>{
     Item.find({}, (err, itemsA) => {
-        res.render('home', {itemsA})
+
+        // server disables save btn on success
+        data = {
+            itemsA: itemsA,
+            saveBtnState: saveBtnState
+        }
+        res.render('home', data)
     })
 })
 
 // 
-router.get('/gotit/:itemid', (req, res, next)=>{
+router.get('/gotit/:items', (req, res, next)=>{
     // returns { itemid: '5c9d430c140df02c7caa2960' }
-    //console.log(req.params)
+    console.log(req.params)
     // 
     res.redirect('/')
 })
